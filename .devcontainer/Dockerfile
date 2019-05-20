@@ -8,6 +8,10 @@ RUN apt-get -y install git procps
 # Install build dependency
 RUN apt-get -y install build-essential gdb cmake ncurses-dev libncurses5-dev libpcre2-dev gettext cppcheck valgrind
 
+# Install test dependency
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install expect vim-common locales && \
+    locale-gen en_US.UTF-8
+
 # Clean up
 RUN apt-get autoremove -y \
     && apt-get clean -y \
