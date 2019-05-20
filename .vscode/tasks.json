@@ -3,40 +3,47 @@
     "tasks": [
         {
             "type": "shell",
-            "label": "Install",
-            "command": "make install",
-            "group": "build",
-            "options": {
-                "cwd": "${workspaceFolder}/fish-shell"
-            },
-            "dependsOn": [
-                "Make"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "type": "shell",
-            "label": "Make",
-            "command": "make",
+            "label": "Build",
+            "command": "cmake ./ && make",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "options": {
                 "cwd": "${workspaceFolder}/fish-shell"
-            },
-            "dependsOn": [
-                "CMake Debug"
-            ]
+            }
         },
         {
             "type": "shell",
-            "label": "CMake Debug",
-            "command": "cmake ./ -DCMAKE_BUILD_TYPE=Debug",
-            "group": "build",
+            "label": "Test",
+            "command": "make test",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
             "options": {
                 "cwd": "${workspaceFolder}/fish-shell"
-            }
+            },
+            "dependsOn": ["Build"]
+        },
+        {
+            "type": "shell",
+            "label": "Install",
+            "command": "make install",
+            "group": "none",
+            "options": {
+                "cwd": "${workspaceFolder}/fish-shell"
+            },
+            "dependsOn": ["Build"],
+        },
+        {
+            "type": "shell",
+            "label": "Clean",
+            "command": "make clean",
+            "group": "none",
+            "options": {
+                "cwd": "${workspaceFolder}/fish-shell"
+            },
         }
     ]
 }

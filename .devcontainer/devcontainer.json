@@ -9,5 +9,6 @@
 		"--cap-add=SYS_PTRACE",
 		"--security-opt",
 		"seccomp=unconfined"
-	]
+	],
+	"postCreateCommand": "[ -d /workspaces/vscode-remote-fish-shell/fish-shell ] && cd /workspaces/vscode-remote-fish-shell/fish-shell && cmake ./ && make && make install",
 }
