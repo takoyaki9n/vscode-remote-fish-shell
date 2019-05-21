@@ -13,7 +13,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install expect vim-common locales 
     locale-gen en_US.UTF-8
 
 # Install lint dependency
-RUN apt-get -y install clang cppcheck clang-format
+RUN apt-get -y install clang cppcheck clang-format iwyu
 
 # Clean up
 RUN apt-get autoremove -y \
