@@ -28,6 +28,15 @@
         },
         {
             "type": "shell",
+            "label": "Install",
+            "command": "make install",
+            "group": "none",
+            "options": {
+                "cwd": "${workspaceFolder}/fish-shell"
+            },
+        },
+        {
+            "type": "shell",
             "label": "Clean",
             "command": "make clean",
             "group": "none",

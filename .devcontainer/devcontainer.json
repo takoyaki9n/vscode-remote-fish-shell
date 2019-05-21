@@ -11,5 +11,5 @@
 		"--security-opt",
 		"seccomp=unconfined"
 	],
-	"postCreateCommand": "[ -d /workspaces/vscode-remote-fish-shell/fish-shell ] && cd /workspaces/vscode-remote-fish-shell/fish-shell && cmake ./ -DCMAKE_BUILD_TYPE=Debug && make",
+	"postCreateCommand": "[ -d /workspaces/vscode-remote-fish-shell/fish-shell ] && cd /workspaces/vscode-remote-fish-shell/fish-shell && cmake ./ -DCMAKE_BUILD_TYPE=Debug && make && make install",
 }
